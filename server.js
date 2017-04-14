@@ -14,20 +14,17 @@ var express = require('express'),
 });
 
 
- app.get('/api/album', function (req, res) {
-  db.Albums.find(function (err, album) {
-      if (err) {
-      console. log(error +err.message);
-      res. status(500).send();
-  } else {
-  	res.json(album);
-     }
-   });
+ 
+app.get('/api/Albums', function AlbumsIndex(req, res) { 
+  // get all cards from the database 
+  db.Albums.find({}, function(err, allAlbums) {
+    // add some error checking here!
+    // respond, sending all cards back
+    res.json(allAlbums);
+  });
 });
 
-
 app.get('/api', controllers.api.index);
-
 
 
 

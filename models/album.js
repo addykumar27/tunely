@@ -4,13 +4,14 @@ var Schema = mongoose.Schema;
 
 var Song = require('./song');
 
-var AlbumsSchema = new Schema({
-  title: String,
-  artist: String,
-  image: String,
-  releaseDate: String
+var AlbumSchema = new Schema({
+  artistName: String,
+  name: String,
+  releaseDate: String,
+  genres: [String],
+  songs:[Song.schema]
 });
 
-var Albums = mongoose.model('Albums', AlbumsSchema);
+var Album = mongoose.model('Album', AlbumSchema);
  
- module.exports = Albums;
+ module.exports = Album;

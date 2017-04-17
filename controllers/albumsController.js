@@ -68,8 +68,12 @@ function show(req, res) {
 
 // DELETE /api/albums/:albumId
 function destroy(req, res) {
-  // find one album by id, delete it, and send it back as JSON
-}
+  db.Album.findOneAndRemove({ _id: req.params.albumId }, function(err, foundAlbum){
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundAlbum);
+  });
+}// find one album by id, delete it, and send it back as JSON
+
 
 // PUT or PATCH /api/albums/:albumId
 function update(req, res) {

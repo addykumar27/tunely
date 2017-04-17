@@ -3,9 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-
-
-
 var AlbumsSchema = new Schema({
   title: String,
   artist: String,
@@ -13,6 +10,6 @@ var AlbumsSchema = new Schema({
   releaseDate: String
 });
 
-var Albums = mongoose.model('Album', AlbumSchema);
+var Albums = mongoose.model('Albums', AlbumsSchema);
  
- module.exports = Album;
+ module.exports = Albums;

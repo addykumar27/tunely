@@ -1,7 +1,36 @@
-var db = require("./models");
+var db = require("../models");
 
 var albumsList =[
     // data here soon!
+//var albums = [];
+albums.push({
+            _id:
+            artistName: 'Nine Inch Nails',
+            name: 'The Downward Spiral',
+            releaseDate: '1994, March 8',
+            genres: [ 'industrial', 'industrial metal' ]
+          });
+albums.push({
+            _id:
+            artistName: 'Metallica',
+            name: 'Metallica',
+            releaseDate: '1991, August 12',
+            genres: [ 'heavy metal' ]
+          });
+albums.push({
+            _id: 
+            artistName: 'The Prodigy',
+            name: 'Music for the Jilted Generation',
+            releaseDate: '1994, July 4',
+            genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
+          });
+albums.push({
+            _id:
+            artistName: 'Johnny Cash',
+            name: 'Unchained',
+            releaseDate: '1996, November 5',
+            genres: [ 'country', 'rock' ]
+          });
 ];
 
 db.Album.remove({}, function(err, albums){

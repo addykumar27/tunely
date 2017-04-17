@@ -7,7 +7,7 @@
 console.log('Sanity Check !');
 
 /* hard-coded data! */
-var sampleAlbums = [];
+/*var sampleAlbums = [];
 sampleAlbums.push({
              artistName: 'Ladyhawke',
              name: 'Ladyhawke',

@@ -60,12 +60,11 @@ function handleAlbumEditClick(e) {
   // get the releasedate and replace its field with an input element
   var releaseDate = $albumRow.find('span.album-releaseDate').text();
   $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
-}
 
-var genres = $albumRow.find('span.album-genres').text();
+  var genres = $albumRow.find('span.album-genres').text();
   $albumRow.find('span.album-genres').html('<input class="edit-album-genres" value="' + genres + '"></input>');
 
-
+}
 // after editing an album, when the save changes button is clicked
 function handleSaveChangesClick(e) {
   var albumId = $(this).parents('.album').data('album-id'); // $(this).closest would have worked fine too
@@ -74,9 +73,11 @@ function handleSaveChangesClick(e) {
   var data = {
     name: $albumRow.find('.edit-album-name').val(),
     artistName: $albumRow.find('.edit-artist-name').val(),
-    releaseDate: $albumRow.find('.edit-album-releaseDate').val()
+    releaseDate: $albumRow.find('.edit-album-releaseDate').val(),
+    genres: $albumRow.find('.edit-album-genres').val()  
   };
-  console.log('PUTing data for album', albumId, 'with data', data);
+
+  
 
   $.ajax({
     method: 'PUT',
@@ -157,6 +158,10 @@ function renderAlbum(album) {
                   <li class="list-group-item">
                     <h4 class='inline-header'>Released date:</h4>
                     <span class='album-releaseDate'>${album.releaseDate}</span>
+                  </li>
+                  <li class="list-group-item">
+                    <h4 class='inline-header'>genres:</h4>
+                    <span class='album-genres'>${album.genres}</span>
                   </li>
                   <li class="list-group-item">
                     <h4 class="inline-header">Songs:</h4>

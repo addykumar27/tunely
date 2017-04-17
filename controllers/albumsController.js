@@ -47,11 +47,20 @@ function destroy(req, res) {
 
 // PUT or PATCH /api/albums/:albumId
 function update(req, res) {
-   db.Album.findOneAndUpdate({ _id: req.params.albumId }, function(err, foundAlbum){
-    // note you could send just send 204, but we're sending 200 and the deleted entity
-    res.json(foundAlbum);
+  console.log('updating with data', req.body);
+  db.Album.findById(req.params.albumId, function(err, foundAlbum) {
+    if(err) { console.log('albumsController.update error', err); }
+    foundAlbum.artistName = req.body.artistName;
+    foundAlbum.name = req.body.name;
+    foundAlbum.releaseDate = req.body.releaseDate;
+    foundAlbum.genres = req.body.genres;
+    foundAlbum.save(function(err, savedAlbum) {
+      if(err) { console.log('saving altered album failed'); }
+      res.json(savedAlbum);
+    });
   });
-}// find one album by id, delete it, and send it back as JSON
+}
+
 
 
 // export public methods here
